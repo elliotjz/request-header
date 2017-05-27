@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 app.get('*', function (req, res) {
-	const ipaddress = req.headers.host;
+	const ipaddress = req.headers['x-forwarded-for'];
 	const language = req.headers["accept-language"].substring(0, 5);
 	const software = req.headers["user-agent"].split(/[()]+/)[1];
 
